@@ -1,0 +1,29 @@
+name: Contracts Coverage
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Scarb
+        uses: software-mansion/setup-scarb@v1
+      - name: Set up Starknet Foundry
+        uses: foundry-rs/setup-snfoundry@v3
+      - name: Set up cairo-coverage
+        run: curl -L https://raw.githubusercontent.com/software-mansion/cairo-coverage/main/scripts/install.sh | sh
+      - name: Generate report
+        run: snforge test --coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage/coverage.lcov
+          token: ${{ secrets.CODECOV_TOKEN }}

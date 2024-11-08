@@ -1,0 +1,21 @@
+[package]
+name = "cairo_template"
+version = "0.1.0"
+edition = "2024_07"
+
+[dependencies]
+starknet = ">=2.8.2"
+
+[dev-dependencies]
+snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry", tag = "v0.31.0" }
+
+[[target.starknet-contract]]
+sierra = true
+
+[scripts]
+test = "snforge test"
+
+[profile.dev.cairo]
+unstable-add-statements-code-locations-debug-info = true
+unstable-add-statements-functions-debug-info = true
+inlining-strategy = "avoid"
