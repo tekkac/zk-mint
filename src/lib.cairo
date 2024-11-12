@@ -1,5 +1,5 @@
 pub mod contract {
-    pub mod contract;
+    pub mod zkmint;
     pub mod interface;
 }
 
