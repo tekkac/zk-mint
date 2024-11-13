@@ -21,7 +21,7 @@ jobs:
       - name: Set up cairo-coverage
         run: curl -L https://raw.githubusercontent.com/software-mansion/cairo-coverage/main/scripts/install.sh | sh
       - name: Generate report
-        run: snforge test --coverage
+        run: cd cairo; snforge test --coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
