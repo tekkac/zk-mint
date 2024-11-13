@@ -2,3 +2,8 @@ target
 .snfoundry*
 coverage
 snfoundry*
+
+node_modules
+private
+compiled
+public
