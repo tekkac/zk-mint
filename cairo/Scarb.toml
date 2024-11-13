@@ -22,7 +22,7 @@ casm-add-pythonic-hints = true
 [scripts]
 test = "snforge test"
 
-[profile.dev.cairo]
-unstable-add-statements-functions-debug-info = true
-unstable-add-statements-code-locations-debug-info = true
-inlining-strategy = "avoid"
+# [profile.dev.cairo]
+# unstable-add-statements-functions-debug-info = true
+# unstable-add-statements-code-locations-debug-info = true
+# inlining-strategy = "avoid"
