@@ -12,7 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: software-mansion/setup-scarb@v1
-      - run: scarb build
-      - run: scarb fmt -c
       - uses: foundry-rs/setup-snfoundry@v3
-      - run: snforge test
+      - run: cd cairo; scarb fmt -c; scarb build; scarb test

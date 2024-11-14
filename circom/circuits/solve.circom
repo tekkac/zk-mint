@@ -1,7 +1,7 @@
-pragma circom 2.1.6;
+pragma circom 2.0.7;
 
-include "circomlib/poseidon.circom";
-include "../../node_modules/circomlib/circuits/comparators.circom";
+include "../node_modules/circomlib/circuits/comparators.circom";
+include "../node_modules/circomlib/circuits/poseidon.circom";
 
 template Multiplier (n) {
     signal input in[n];
@@ -24,8 +24,6 @@ template Multiplier (n) {
     }
     inner[n-2] === total;
     l <== length;
-
-    log("length", length);
 }
 
 component main { public [ total ] } = Multiplier(32);
