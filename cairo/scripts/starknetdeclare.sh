@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source ../.env
+starkli declare --watch target/dev/zkmint_Groth16VerifierBN254.contract_class.json --keystore-password $KEYSTORE_PASSWORD
+starkli declare --watch target/dev/zkmint_ZKMint.contract_class.json --keystore-password $KEYSTORE_PASSWORD
+
+# VERIFIER=0x037813b33bfc4f08b600b01b61f6aae9185f7f43b1ca40ccbe86a8940aa1efcc
+# ZKMINT_CLASS=0x079d442606aa491d14fc22383887ce3c3af48c0bbd7df6baffea067d29b474cc
+# starkli deploy 0x06f2a812465fdbcff7c5415095fc37a8ec2d3c155f0fe75da48f89c2533843b3 0x0447CDE70a938E88b8C9f33c6c7EE47Ac51b6D4f414c87618AAf971bB3E6a6A6 --keystore-password $KEYSTORE_PASSWORD
+# ZKMINT=0x0475978547fd2c8d89574ee9585a2f42cf3ccd5fc3d23c75b39a15ef767e12c8
