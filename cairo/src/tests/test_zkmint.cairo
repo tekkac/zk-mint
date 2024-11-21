@@ -35,23 +35,6 @@ fn test_get_verifier() {
 
 #[test]
 #[fork(url: "https://starknet-mainnet.public.blastapi.io/rpc/v0_7", block_tag: latest)]
-fn test_owner_mint() {
-    let owner = contract_address_const::<'OWNER'>();
-    let contract_address = deploy_contract("ZKMint", array![owner.into()]);
-    let zkmint = IZKMintDispatcher { contract_address };
-
-    start_cheat_caller_address(contract_address, owner);
-    zkmint.owner_mint();
-
-    let nft = IERC721MetadataDispatcher { contract_address };
-    let uri = nft.token_uri(1);
-    assert!(uri.len() > 100, "invalid uri");
-    println!("uri: {}", uri);
-}
-
-
-#[test]
-#[fork(url: "https://starknet-mainnet.public.blastapi.io/rpc/v0_7", block_tag: latest)]
 fn test_verify() {
     let class_hash = *declare("Groth16VerifierBN254").unwrap().contract_class().class_hash;
 
@@ -84,6 +67,8 @@ fn test_e2e() {
 
     start_cheat_caller_address(contract_address, owner);
     contract.set_verifier(class_hash);
+    contract.add_token(STRK_ADDRESS.into());
+
     stop_cheat_caller_address(contract_address);
     start_cheat_caller_address(contract_address, user_address);
     contract.mint_with_proof(get_proof());
@@ -105,4 +90,3 @@ fn test_randomness() {
 
     let _ = strk.balance_of(sequencer);
 }
-

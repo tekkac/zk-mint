@@ -163,25 +163,16 @@ pub mod ZKMint {
             self.num_solvers.read()
         }
 
-        // temporary
-        fn owner_mint(ref self: ContractState) {
-            let caller = get_caller_address();
-            self.ownable.assert_only_owner();
-            let new_supply = self.total_supply.read() + 1;
-
-            self.erc721.mint(caller, new_supply);
-            self.total_supply.write(new_supply);
-
-            let token_address = self.tokens.entry(0).read();
-            self.metadata.entry(new_supply).write((0, token_address));
-            self.minted.entry(caller).write(true);
-        }
-
         fn owner_withdraw(ref self: ContractState, index: u32) {
             self.ownable.assert_only_owner();
             let token_address = self.tokens.entry(index).read();
             let token = ERC20ABIDispatcher { contract_address: token_address };
             token.transfer(self.ownable.owner(), token.balance_of(get_contract_address()));
+        }
+
+        fn add_token(ref self: ContractState, address: ContractAddress) {
+            self.ownable.assert_only_owner();
+            self._add_token(address);
         }
     }
 
@@ -219,7 +210,7 @@ pub mod ZKMint {
             let this = get_contract_address();
             let balance = token.balance_of(this);
 
-            let reward = balance * coeff * coeff / 31337;
+            let reward = balance * coeff * coeff / 9337;
 
             token.transfer(caller, reward);
             index

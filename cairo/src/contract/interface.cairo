@@ -8,6 +8,6 @@ pub trait IZKMint<TContractState> {
     fn get_verifier(self: @TContractState) -> IVerifierLibraryDispatcher;
     fn get_metadata(self: @TContractState, token_id: u256) -> (u256, ContractAddress);
     fn get_num_solvers(self: @TContractState) -> u32;
-    fn owner_mint(ref self: TContractState);
     fn owner_withdraw(ref self: TContractState, index: u32);
+    fn add_token(ref self: TContractState, address: ContractAddress);
 }
