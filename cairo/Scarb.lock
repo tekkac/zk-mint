@@ -2,11 +2,6 @@
 version = 1
 
 [[package]]
-name = "cairo_json"
-version = "0.1.0"
-source = "git+https://github.com/carbonable-labs/cairo-json.git?tag=v0.1.0#590f7517c54d4f776cc30ccd811b9fa41f031eb5"
-
-[[package]]
 name = "garaga"
 version = "0.14.0"
 source = "git+https://github.com/keep-starknet-strange/garaga.git?tag=v0.14.0#eb9be301d0cd61df8ffa546742e092b5e67e1505"
@@ -78,7 +73,6 @@ dependencies = [
 name = "zkmint"
 version = "0.1.0"
 dependencies = [
- "cairo_json",
  "garaga",
  "openzeppelin_access",
  "openzeppelin_introspection",
