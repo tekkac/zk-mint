@@ -151,15 +151,15 @@ pub mod ZKMint {
             self.verifier.write(IVerifierLibraryDispatcher { class_hash: verifier });
         }
 
-        fn get_verifier(ref self: ContractState) -> IVerifierLibraryDispatcher {
+        fn get_verifier(self: @ContractState) -> IVerifierLibraryDispatcher {
             self.verifier.read()
         }
 
-        fn get_metadata(ref self: ContractState, token_id: u256) -> (u256, ContractAddress) {
+        fn get_metadata(self: @ContractState, token_id: u256) -> (u256, ContractAddress) {
             self.metadata.entry(token_id).read()
         }
 
-        fn get_num_solvers(ref self: ContractState) -> u32 {
+        fn get_num_solvers(self: @ContractState) -> u32 {
             self.num_solvers.read()
         }
 

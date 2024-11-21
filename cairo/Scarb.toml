@@ -20,7 +20,7 @@ assert_macros = "2.8.4"
 sierra-replace-ids = false
 
 [[target.starknet-contract]]
-casm = true
+casm = false
 casm-add-pythonic-hints = true
 
 [scripts]
