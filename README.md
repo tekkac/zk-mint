@@ -10,7 +10,7 @@
         <img alt="NPM" src="https://img.shields.io/npm/v/circomkit?logo=npm&color=CB3837">
     </a>
     <a href="./.github/workflows/test.yml" target="_blank">
-        <img alt="Workflow: Tests" src="https://github.com/tekkac/zk-mint/actions/workflows/tests.yml/badge.svg?branch=main">
+        <img alt="Workflow: Tests" src="https://github.com/tekkac/zk-mint/actions/workflows/test.yml/badge.svg?branch=main">
     </a>
     <a href="https://opensource.org/licenses/MIT" target="_blank">
         <img src="https://img.shields.io/badge/license-MIT-blue.svg">
