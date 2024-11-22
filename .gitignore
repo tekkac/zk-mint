@@ -4,8 +4,5 @@ coverage
 snfoundry*
 
 node_modules
-private
-compiled
-public
 .env
 tmp/
