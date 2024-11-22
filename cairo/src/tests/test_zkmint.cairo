@@ -76,17 +76,3 @@ fn test_e2e() {
     let uri = nft.token_uri(1);
     assert!(uri.len() > 100, "invalid uri");
 }
-
-#[test]
-#[fork(url: "https://starknet-mainnet.public.blastapi.io/rpc/v0_7", block_tag: latest)]
-fn test_randomness() {
-    let STRK_ADDRESS: ContractAddress = contract_address_const::<
-        0x04718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d
-    >();
-    let strk = ERC20ABIDispatcher { contract_address: STRK_ADDRESS };
-    let sequencer = contract_address_const::<
-        0x01176a1bd84444c89232ec27754698e5d2e7e1a7f1539f12027f28b23ec9f3d8
-    >();
-
-    let _ = strk.balance_of(sequencer);
-}
