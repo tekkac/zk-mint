@@ -21,6 +21,14 @@ A example project that shows how to use Garaga and Circom to create a contract t
 
 Mint using a zero-knowledge proof.
 
+##  Puzzle
+The contract is deployed on Starknet at [0x016c2c5ec9585a958a6c99be1169e202eec67fdd5b130e29533b53a7eebb600e](https://voyager.online/contract/0x016c2c5ec9585a958a6c99be1169e202eec67fdd5b130e29533b53a7eebb600e).
+
+- The ZkMint contract contains some coins up for grabs when successfully validating a zk-proof that you can factor your Starknet address. 
+- The proving key associated to the verifier is in this [repository](circom/private/zkey/).
+- Check the [circuit](circom/circuits) in order to understand the input format.
+
+
 ## Development
 
 ### Pre-requisites
